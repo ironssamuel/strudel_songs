@@ -8,9 +8,8 @@ $: sound(`
 [bd -  -  - ] [-  -  -  - ] [-  -  bd - ] [-  bd -  - ]
 `)
   .bank("RolandTR808")
-  .gain(rand.range(.8, .9))
-  .room(.5)
-  .delay(.1)
+  .gain(rand.range(.7, .8))
+  .dist(2)
   .lpf(2000)
 
 $: note(`<
@@ -22,6 +21,8 @@ $: note(`<
   .sound("piano")
   .gain(rand.range(.8, .9))
   .add(note(perlin.range(0,.2)))
+  .room(.5)
+  .delay(.1)
   .clip(2)
 
 $: note(`<
@@ -31,9 +32,7 @@ $: note(`<
 [c, e, g, b]
 >`)
   .sound("gm_pad_halo")
-  .gain(sine.range(.4, .5))
-  .add(note(perlin.range(0,.2)))
-  .clip(2)
+  .gain(sine.range(.3, .4))
 
 $: note (`<
 [a1 [- a2] [a2 -] a1]
