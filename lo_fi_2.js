@@ -48,6 +48,11 @@ let sub = note("[d2 g1 c2 c2]/4")
   .lpf(sine.range(850, 1500))
   .cutoff(sine.segment(4).range(200,800))
 
-$: stack (drums, chords, bass, sub)
+let intro = sound(stack (chords, drums))
+let verse = stack (chords, bass, drums)
+let bridge = stack (bass, drums)
+let chorus = stack (chords, bass, sub, drums)
+
+$: chorus
 $: sound("<pink>/2").gain(.1)
-$: sound("crackle").gain(1)
+$: sound("crackle").gain(.1)
