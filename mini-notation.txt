@@ -1,0 +1,68 @@
+// --- MINI NOTATION 1 ---
+s("bd:20 sd:9")
+
+n("0 3 5 2").s("bd") // cycles bd:0 bd:3 bd:5 bd:2
+
+n("0 3 ~ 2").s("bd") // musical rest
+
+n("[0] [3] [5] [2]").s("bd") // step sequencing
+n("0 3 [5 5] 2").s("bd") // step sequencing
+
+n("[0 1 2] [0 1 2 3]").s("bd") // 3 against 4
+
+n("[0 1 2] [0 1 2 3]").s("bd") // 3 against 4
+
+n("[0 1 2] [0 [0 [0 1]] 2 3]").s("bd") // breaking down steps
+
+s("[hh oh hh] [hh oh hh oh]") // sounds sequenced
+
+s("ht:3 lt:5").bank("AkaiLinn") // sample bank
+
+// --- MINI NOTATION 2 ---
+
+s("ht lt*3") // plays step 3x "speeding up"
+
+s("ht [ht lt]*3") // plays sequence step 3x
+
+s("ht [ht lt]*1.5") // alternates because counting carried on past 1 sequence to 1.5 sequences, the resumed counting at 1.5
+
+s("ht lt lt lt") // equal division (quarter notes)
+s("ht lt!3") // same same - "repeating"
+
+s("ht lt!3 ht") // repeat to fill the gap with equal division
+s("ht lt!6 ht")
+
+s("[bd sd!2]*2") // waltz
+
+s("hh!16") // hat repeated 16 times (16th notes)
+
+s("ht lt/2") // plays first half of lt in one cycle, then second half in the next cycle (which in this case contains no trigger)
+
+s("mt [ht lt]/2") // alternates ht lt in the step, play first half then second half
+
+s("mt [ht clap lt clap]/2") // plays first half, plays second half
+
+// --- polyphony w ,
+
+s("bd sd, casio*3") // plays two sequences at the same time
+
+s("bd, hh*3, mt ht lt mt") // polyrhythmic
+
+s("[bd, hh*3, mt ht lt mt] [clap snare]") // contained within a step
+
+s("{bd sd, casio:0 casio:1 casio:2}") // steps aligned, not cycles
+
+// -- rhythmic feet with .
+
+s("[bd sd] [bd sd] [bd sd] [bd sd]") // 4 steps
+s("bd sd . bd sd . bd sd . bd sd") // same same, marks steps - not good for subdividing futher
+s("bd sd . bd [sd sd] . [bd bd] sd . bd sd") // can mix notation
+
+s("bd sd . mt lt . bd sd . mt lt") // 4 steps in the sequence
+s("bd sd . mt lt . bd sd") // 3 steps in the sequence
+
+// --- one step per cycle with <>
+
+s("mt [ht lt]/2") // alternated by playing only half the sequence per cycle
+s("mt <ht lt>") // <> says one per cycle
+s("mt <ht clap lt>") // still half notes, just playing one sample in the <> at a time
