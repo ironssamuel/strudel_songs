@@ -66,3 +66,67 @@ s("bd sd . mt lt . bd sd") // 3 steps in the sequence
 s("mt [ht lt]/2") // alternated by playing only half the sequence per cycle
 s("mt <ht lt>") // <> says one per cycle
 s("mt <ht clap lt>") // still half notes, just playing one sample in the <> at a time
+s("mt <ht [clap clap] lt>") // supports substeps
+
+// --- Revision tasks
+
+// -- Copy each of the following patterns in turn, and edit them so that they
+// -- are shorter, using the "<>", "!", "[]" and/or "." introduced above.
+
+s("bd sd sd")
+s("bd sd!2")
+
+s("bd [sd sd]")
+s("bd sd*2")
+
+s("bd sd bd sd bd sd")
+s("[bd sd]!3")
+
+n("0 [1 2 3]/3").s("bd").bank('RolandTR808')
+n("0 <1 2 3>").s("bd").bank('RolandTR808')
+
+n("[0 0 2] [4 5 6 7] [4 1] [0 3 0 3]").s("sd").bank('RolandTR808')
+n("0 ! 2 . 4 5 6 7 . 4 1 . [0 3] !").s("sd").bank('RolandTR808')
+
+s("kd sd kd sd kd sd clap")
+s("[kd sd]!3 clap@0.5")
+
+s("[kd sd kd sd kd sd] clap")
+s("[kd sd]*3 clap")
+
+s("bd sd sd sd bd [sd sd sd]")
+s("bd sd!3 bd sd*3")
+
+// --- Euclidean notation
+
+s("clap(3,8)") // sequence with 8 steps, that contains 3 trigger events
+s("clap(3,9)") // equally distributed 3 events over 9 steps
+s("clap(3,10)") // tries to fit events evenly
+
+s("clap(<3 5>, 8)") // can also be patterned
+
+s("clap(3, 8)")
+s("clap(3, 8, 2)") // 3rd parameter shifts the pattern by n
+
+// The Euclidean Algorithm Generates Traditional Musical Rhythms by Toussaint
+// (2,5) : A thirteenth century Persian rhythm called Khafif-e-ramal.
+// (3,4) : The archetypal pattern of the Cumbia from Colombia, as well as a Calypso rhythm from Trinidad.
+// (3,5,2) : Another thirteenth century Persian rhythm by the name of Khafif-e-ramal, as well as a Rumanian folk-dance rhythm.
+// (3,7) : A Ruchenitza rhythm used in a Bulgarian folk-dance.
+// (3,8) : The Cuban tresillo pattern.
+// (4,7) : Another Ruchenitza Bulgarian folk-dance rhythm.
+// (4,9) : The Aksak rhythm of Turkey.
+// (4,11) : The metric pattern used by Frank Zappa in his piece titled Outside Now.
+// (5,6) : Yields the York-Samai pattern, a popular Arab rhythm.
+// (5,7) : The Nawakhat pattern, another popular Arab rhythm.
+// (5,8) : The Cuban cinquillo pattern.
+// (5,9) : A popular Arab rhythm called Agsag-Samai.
+// (5,11) : The metric pattern used by Moussorgsky in Pictures at an Exhibition.
+// (5,12) : The Venda clapping pattern of a South African children’s song.
+// (5,16) : The Bossa-Nova rhythm necklace of Brazil.
+// (7,8) : A typical rhythm played on the Bendir (frame drum).
+// (7,12) : A common West African bell pattern.
+// (7,16,14) : A Samba rhythm necklace from Brazil.
+// (9,16) : A rhythm necklace used in the Central African Republic.
+// (11,24,14) : A rhythm necklace of the Aka Pygmies of Central Africa.
+// (13,24,5) : Another rhythm necklace of the Aka Pygmies of the upper Sangha.
