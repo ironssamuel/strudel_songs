@@ -1,0 +1,19 @@
+setcpm(90/4)
+
+const arp = n("[0 .. 15]")
+  .chord("<C^7 A7 Dm7 G7>")
+  .voicing()
+  .s("saw, triangle".fast(8))
+  .lpe(rand.range(3,6).slow(8))
+  .pan(rand)
+  .delay(".1")
+  .room(rand.range(0.1,1.5).slow(1))
+
+const drumlevee = s(`
+[ hh hh hh hh ] [ hh hh hh hh ] [ hh hh hh hh ] [ hh hh hh hh ] ,
+[ -  -  -  -  ] [ sd -  -  -  ] [ -  -  -  -  ] [ sd -  -  -  ],
+[ bd bd -  -  ] [ -  -  -  bd ] [ -  -  bd bd ] [ -  -  -  -  ]
+`).bank("RolandTR808").punchcard()
+
+$: arp
+$: drumlevee
