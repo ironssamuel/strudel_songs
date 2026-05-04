@@ -6,14 +6,14 @@ setcpm(100/2)
 
 let drums = stack(
   s(`<
-    [bd - - sd - bd]
+    <[bd - - sd - bd]
     [bd bd - sd - bd]
     [bd bd bd sd - bd]
-    [bd bd - sd bd bd]
-    [bd bd - sd - bd]
+    [bd bd - sd bd bd]>
+    <[bd bd - sd - bd]
     [bd - - sd - bd]
     [bd - bd sd - bd]
-    [bd - - sd bd bd]
+    [bd - - sd bd bd]>
     >`).gain(rand.range(0.5, 0.9))
     .pan(.55),
   s(`<
@@ -58,21 +58,29 @@ let pad = note(`[a4, c5, e5, g5]`).s("gm_pad_halo")
   .gain(0.1)
   .pan(.75)
 
+const pink = sound("<pink>/4").gain(0.1)
+const crackle = sound("crackle").gain(0.1)
+
 // ARRANGEMENT
 
-const i = drums
-const ii = stack(drums, bass)
-const iii  = stack(drums, bass, arp)
-const iv  = stack(drums, bass, arp, pad)
-const v = stack(drums, bass, sub, arp, pad)
-const vi = stack(bass, sub, arp, pad)
-const vii = stack(bass, arp, pad)
-const viii = stack(drums, bass, sub)
-const vix = stack(drums, arp, pad)
+const i = stack(drums, pink, crackle)
+const ii = stack(drums, bass, pink, crackle)
+const iii  = stack(drums, bass, arp, pink, crackle)
+const iv  = stack(drums, bass, arp, pad, pink, crackle)
+const v = stack(drums, bass, sub, arp, pad, pink, crackle)
+const vi = stack(bass, sub, arp, pad, pink, crackle)
+const vii = stack(bass, arp, pad, pink, crackle)
+const viii = stack(drums, bass, sub, pink, crackle)
+const vix = stack(drums, arp, pad, pink, crackle)
 
-// MASTER TRACK EFFECTS
-
-$: v
-
-$: sound("<pink>/4").gain(0.1)
-$: sound("crackle").gain(0.1)
+arrange(
+  [8, i],
+  [8, ii],
+  [8, iii],
+  [8, iv],
+  [8, v],
+  [8, vi],
+  [8, vii],
+  [8, viii],
+  [8, vix],
+)
